@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.shortcuts import render
 from django.template import loader
@@ -11,7 +11,6 @@ from models import Book
 from django.http import HttpResponse,HttpResponseRedirect
 
 def home(request):
-	
 	all_books = Book.objects.all()
 	all_category = []
 	for b in all_books:
@@ -29,4 +28,18 @@ def product(request):
 	context = {}
 	template = loader.get_template('product.html')
 	return HttpResponse(template.render(context,request))
+
+@login_required
+def userprofile(request):
+	user = request.user
+	context = {'user':user}
+	template = "profile.html"
+	return render(request,template,context)
+
+
+@login_required
+def checkout(request):
+	context = {}
+	template = "checkout.html"
+	return render(request,template,context)
 

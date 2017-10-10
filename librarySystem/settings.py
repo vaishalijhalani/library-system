@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'bookstore.apps.BookstoreConfig',
+    'bookstore',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'checkout',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +75,15 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+)
+
 WSGI_APPLICATION = 'librarySystem.wsgi.application'
 
 
@@ -85,7 +97,7 @@ DATABASES = {
     }
 }
 
-
+CRISPY_TEMPLATE_PACK = "bootstrap3"
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -130,7 +142,6 @@ STATICFILES_DIRS = [
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
-
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
@@ -147,6 +158,7 @@ ACCOUNT_LOGOUT_ON_GET = False
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_FORM_CLASS = None
 ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = True
+
 
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
