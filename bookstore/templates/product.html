@@ -3,25 +3,51 @@
 
 {% block content %}
     <!-- Page Content -->
-  
+    <div class="container" style="min-height: 500px;">
+
+      <div class="row">
+
+         <div class="col-lg-3 mt-4">
+
+       
+        <div class="list-group">
+          <a href="/home" id="allCategory" class="list-group-item">All</a>
+          {% for b in all_category %}
+          <a href="/home?category={{b}}" id="{{b}}" class="list-group-item">{{b}}</a>
+          <!-- <a href="#" class="list-group-item">Category 2</a>
+          <a href="#" class="list-group-item">Category 3</a> -->
+          {% endfor %}
+        </div>
+
+
+      </div>
         <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4">
+            <div class="row">
+              <div class="col-lg-3">
+                <img class="card-img-top img-fluid" src="{{ book.image }}" alt="">    
+              </div>
+              <div class="card-body col-lg-9">
+                <h3 class="card-title">{{book.title}}</h3>
+                <h4>{{book.price}}</h4>
+                <p class="card-text">{{book.description}}</p>
+              </div>
+            </div>
+            
+            
+          </div>
           <!-- /.card -->
 
           <div class="card card-outline-secondary my-4">
             <div class="card-header">
-              Product Reviews
+             
             </div>
             <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <a href="/bookstore/checkout/" class="btn btn-success">Checkout</a>
+              <a href="/bookstore/checkout/">
+              <button  class="btn btn-default">Checkout</button></a>
             </div>
           </div>
           <!-- /.card -->
