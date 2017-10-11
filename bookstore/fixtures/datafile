@@ -1,0 +1,30 @@
+[
+  {
+    "model": "bookstore.Book",
+    "pk": 1,
+    "fields": {
+      "title": "The Theory of Everything",
+      "author": "Stephen Hawking"
+      "image":"https://images-na.ssl-images-amazon.com/images/I/51oHUvYzbsL._SX327_BO1,204,203,200_.jpg"
+      "description":"The book provides a clear view of the world through Stephen’s mind where he respectfully dismisses the belief that the Universe conforms by a supernatural and all-powerful entity."
+      "category":"Science"
+      "price":"100$"
+
+    }
+  },
+  {
+    "model": "bookstore.Book",
+    "pk": 2,
+    "fields": {
+      "title": "I Do What I Do",
+      "author": "Rajan Raghuram G."
+      "image":"https://images-eu.ssl-images-amazon.com/images/I/7193ahAaOjL._SL150_.jpg"
+      "description":"I Do What I Do offers a front-row view into the thinking of one of the world's most respected economists, one whose commitment to India's progress shines through in the essays and speeches here. It also brings home what every RBI Governor discovers for himself when he sits down at his desk on the 18th floor: the rupee stops here. Right here!"
+      "category":"Business"
+      "price":"250$"
+
+
+    }
+  },
+
+]

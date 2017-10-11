@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^home/$', views.home, name='home'),
     url(r'^bookstore/product/',views.product, name='product'),
     #url(r"^signup/$", views.signup, name="account_signup"),
     #url(r"^login/$", views.login, name="account_login"),

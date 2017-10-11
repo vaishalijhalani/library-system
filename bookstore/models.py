@@ -11,8 +11,6 @@ class Book(models.Model):
 	price = models.CharField(max_length=20)
 	image = models.URLField(max_length=200)
 	description = models.CharField(max_length=500)
-	isbn = models.CharField(max_length=20)
-	publisher = models.CharField(max_length=50)
 	category = models.CharField(max_length=50,null=True)
 
 

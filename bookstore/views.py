@@ -11,6 +11,7 @@ from models import Book
 from django.http import HttpResponse,HttpResponseRedirect
 
 def home(request):
+	print request
 	all_books = Book.objects.all()
 	all_category = []
 	for b in all_books:
@@ -23,8 +24,6 @@ def home(request):
 
 
 def product(request):
-	# procuct = Book.objects.get();
-	# context = {'product':product}
 	context = {}
 	template = loader.get_template('product.html')
 	return HttpResponse(template.render(context,request))
@@ -42,4 +41,7 @@ def checkout(request):
 	context = {}
 	template = "checkout.html"
 	return render(request,template,context)
+
+
+
 

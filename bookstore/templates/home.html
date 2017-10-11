@@ -10,7 +10,7 @@
           <h1 class="my-4">Book Store</h1>
           <div class="list-group">
             {% for b in all_category %}
-            <a href="#" id="{{b}}" onclick="categoryClick("{{b}}");" class="list-group-item">{{b}}</a>
+            <a href="/home?category="+("{{b}}") id="{{b}}" onclick="categoryClick("{{b}}");" class="list-group-item">{{b}}</a>
             <!-- <a href="#" class="list-group-item">Category 2</a>
             <a href="#" class="list-group-item">Category 3</a> -->
             {% endfor %}
@@ -51,7 +51,6 @@
 
           <div class="row">
             {% for b in all_books %}
-              {% ifequal b.category "Science" %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{b.image}}" alt=""></a>
@@ -67,7 +66,6 @@
                 </div>
               </div>
             </div>
-              {% endifequal %}
             {% endfor %}
        <!--      <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
