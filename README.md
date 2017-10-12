@@ -1,6 +1,6 @@
 library-system
 
-1.Dependencies
+1. Dependencies
 
 	Django all-auth
 	Crispy-from-tags
@@ -8,7 +8,7 @@ library-system
 	Django 1.11.6
 
 
-2. ./install.sh to install all the dependencies, run the server and populate the database. Put this url in chrome http://127.0.0.1:8000/
+2. Run ./install.sh to install all the dependencies, run the server and populate the database. Put this url in chrome http://127.0.0.1:8000/
 
 3. library-system
 		
@@ -65,19 +65,20 @@ library-system
 		home()
 		product()
 		checkout()
-                final()
 
 	urls.py
 		home/
 		product/
 		checkout/
-		checkout/final/
 
 	models.py
 		Book
 
+	form.py
+		checkoutForm
 
-7. For user authentication Django all-auth package. Put all the dependeices in settings.py and you will be able to signup, login , logout. taken reference from - https://github.com/pennersr/django-allauth, http://django-allauth.readthedocs.io/en/latest/installation.html.
+
+7. For user authentication Django all-auth package. Reference - https://github.com/pennersr/django-allauth, http://django-allauth.readthedocs.io/en/latest/installation.html.
 
 8. In install.sh command "python manage.py migrate" to populate the database. 
 
