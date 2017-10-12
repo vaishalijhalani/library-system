@@ -5,6 +5,7 @@ from django.core import serializers
 from django.shortcuts import render
 from django.template import loader
 from models import Book
+from form import checkoutForm
 
 # Create your views here.
 
@@ -21,7 +22,6 @@ def home(request):
 	for b in Book.objects.all():
 		all_category.append(b.category)
 	all_category = list(set(all_category))
-	# all_books = serializers.serialize("json", all_books)
 	context = {'all_books':all_books, 'all_category':all_category}
 	template = loader.get_template('home.html')
 	
@@ -29,7 +29,6 @@ def home(request):
 
 
 def product(request):
-	print request.GET
 	isbn = request.GET.get('isbn')
 	all_books = Book.objects.filter(isbn = isbn)
 	all_category =[]
@@ -50,9 +49,14 @@ def userprofile(request):
 
 @login_required
 def checkout(request):
-	context = {}
-	template = "checkout.html"
-	return render(request,template,context)
+	if request.method=='POST':
+		context = {}
+		template = loader.get_template('thankyou.html')
+		return HttpResponse(template.render(context,request))
+	form = checkoutForm()
+	context = {'form':form}
+	template = loader.get_template('checkout.html')
+	return HttpResponse(template.render(context,request))
 
 
 
